@@ -122,6 +122,6 @@ The MIT License is a permissive open source license that allows you to use, modi
 If you have any feedback, suggestions, or questions regarding the project, please create an issue in the repository or contact me at ekorir99@gmail.com.
 
 ### If you find this repository helpful, don't forget to show your support by giving it a star! ⭐
-Your star is a great way to let us know you appreciate our work and find value in this project. Thank you! ⭐
+Your star is a great way to let us know you appreciate my work and find value in this project. Thank you! ⭐
 
 Happy analyzing and predicting❤️!
