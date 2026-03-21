@@ -1,4 +1,4 @@
-<h1 align="center">📱 Telecom Customer Churn Prediction</h1>
+<h1 align="center"> Telecom Customer Churn Prediction</h1>
 
 <p align="center">
   <img src="images/stock-photo-customer-churn-is-shown-using-a-text-2443621059.jpg" alt="Telecom Churn Banner" width="80%"/>
@@ -18,7 +18,7 @@
 
 ---
 
-## 📑 Table of Contents
+##  Table of Contents
 
 - [Project Overview](#-project-overview)
 - [Business Problem](#-business-problem)
@@ -37,7 +37,7 @@
 
 ---
 
-## 📋 Project Overview
+##  Project Overview
 
 | Item | Detail |
 |------|--------|
@@ -47,7 +47,7 @@
 | **Dataset** | Telecom customer records — Train: 3,333 rows · Test: 1,667 rows |
 | **Features** | 19 input features covering demographics, plan subscriptions, and usage behaviour |
 | **Models Evaluated** | Logistic Regression, Decision Tree, Random Forest, SVM (Linear), SVM (RBF) |
-| **Chosen Model** | ✅ Random Forest Classifier |
+| **Chosen Model** |  Random Forest Classifier |
 | **Deployment Artifacts** | `random_forest_model.pkl`, `label_encoder.pkl`, `standard_scaler.pkl` |
 | **Web App** | Flask application deployed on PythonAnywhere |
 
@@ -55,13 +55,13 @@ Customer churn is one of the most critical challenges in the telecom industry. A
 
 ---
 
-## 🚨 Business Problem
+##  Business Problem
 ![image](images/freepik__visual-of-telecom-churn-rate-trend-declining-custo__63267.png)
 Telecom companies operate in a highly competitive market where customers can switch providers with minimal friction. **Churn** — when a customer terminates their subscription or switches to a competitor — directly erodes revenue and increases operational costs through:
 
-- 💸 **Lost recurring revenue** from the departing customer.
-- 📈 **Increased acquisition costs** to replace churned customers with new ones.
-- 📣 **Negative word-of-mouth** effects from dissatisfied departing customers.
+-  **Lost recurring revenue** from the departing customer.
+-  **Increased acquisition costs** to replace churned customers with new ones.
+-  **Negative word-of-mouth** effects from dissatisfied departing customers.
 
 ### The Core Business Question
 ![image](images/customer-loyalty-service-efficiency-strategy-concept.jpg)
@@ -79,7 +79,7 @@ Traditional rule-based approaches (e.g. *"flag customers with 3+ support calls"*
 
 ---
 
-## 🎯 Project Objectives
+##  Project Objectives
 
 ### Primary Objective
 Build a **predictive classification model** that accurately identifies telecom customers who are likely to churn, enabling the business to take preemptive retention action.
@@ -101,7 +101,7 @@ Build a **predictive classification model** that accurately identifies telecom c
 
 ---
 
-## ⏳ Dataset
+##  Dataset
 
 Download the dataset for custom training from the [data folder](data/).
 
@@ -112,11 +112,11 @@ The dataset is a well-known **telecom customer churn dataset** (commonly associa
 | **Train** | 3,333 | 20 | ~14.5% |
 | **Test** | 1,667 | 20 | ~14.5% |
 
-> ⚠️ **Class Imbalance Note:** ~85.5% of customers did **not** churn vs ~14.5% who did. Raw accuracy is therefore a misleading metric — precision, recall, F1-score, and AUC-ROC are the primary evaluation metrics in this project.
+>  **Class Imbalance Note:** ~85.5% of customers did **not** churn vs ~14.5% who did. Raw accuracy is therefore a misleading metric — precision, recall, F1-score, and AUC-ROC are the primary evaluation metrics in this project.
 
 ---
 
-## 🗂️ Data Understanding
+##  Data Understanding
 
 ### Feature Dictionary
 
@@ -147,24 +147,24 @@ The dataset is a well-known **telecom customer churn dataset** (commonly associa
 
 | Check | Result |
 |-------|--------|
-| Missing values | ✅ Zero — no imputation required |
-| Duplicate rows | ✅ None detected |
-| Class balance | ⚠️ Imbalanced — 85.5% vs 14.5% |
-| Multicollinearity | ⚠️ 4 charge columns are linear derivatives of minute columns — dropped |
-| Schema consistency (train vs test) | ✅ Identical structure and data types |
+| Missing values |  Zero — no imputation required |
+| Duplicate rows |  None detected |
+| Class balance |  Imbalanced — 85.5% vs 14.5% |
+| Multicollinearity |  4 charge columns are linear derivatives of minute columns — dropped |
+| Schema consistency (train vs test) |  Identical structure and data types |
 
 ### Known Churn Risk Factors (Domain Knowledge)
 
 Based on industry research, the following features are expected to be the strongest predictors:
 
-- 📞 **Customer service calls** — high call frequency signals unresolved complaints.
-- 🌍 **International plan** — subscribers dissatisfied with international rates are more likely to switch.
-- ☀️ **Total day minutes/charge** — heavy daytime users may be price-sensitive and actively seeking cheaper alternatives.
-- 📬 **Voice mail plan** — customers with value-added services tend to be more loyal (lower expected churn).
+-  **Customer service calls** — high call frequency signals unresolved complaints.
+-  **International plan** — subscribers dissatisfied with international rates are more likely to switch.
+-  **Total day minutes/charge** — heavy daytime users may be price-sensitive and actively seeking cheaper alternatives.
+-  **Voice mail plan** — customers with value-added services tend to be more loyal (lower expected churn).
 
 ---
 
-## 🗂️ Project Structure
+##  Project Structure
 
 ```
 Telecom-Customer-Churn-Prediction/
@@ -191,20 +191,20 @@ Telecom-Customer-Churn-Prediction/
 
 ---
 
-## 🔬 Methodology
+##  Methodology
 
 The project follows a structured data science pipeline:
 
-### 1. 📥 Data Collection & Loading
+### 1.  Data Collection & Loading
 Train and test datasets are loaded from CSV files. The test set is kept fully separate throughout model development to ensure unbiased final evaluation.
 
-### 2. 🔍 Exploratory Data Analysis (EDA)
+### 2.  Exploratory Data Analysis (EDA)
 - **Churn distribution** — donut chart reveals the ~85/15 class imbalance.
 - **Pairplot** — confirms perfect multicollinearity between minute and charge column pairs.
 - **Correlation matrix** — Pearson heatmap on preprocessed features; `Customer service calls` and `International plan` show the strongest positive correlation with churn.
 - **PCA scatter** — 2D principal component visualisation of class separability (for exploration only, not used in modelling).
 
-### 3. ⚙️ Data Preprocessing
+### 3.  Data Preprocessing
 | Step | Detail |
 |------|--------|
 | **Drop columns** | `State`, `Area code`, and all 4 charge columns removed |
@@ -212,18 +212,18 @@ Train and test datasets are loaded from CSV files. The test set is kept fully se
 | **Standard scaling** | All numerical features scaled to mean=0, std=1 |
 | **Save transformers** | `LabelEncoder` and `StandardScaler` serialised for deployment |
 
-### 4. 🤖 Model Building
+### 4.  Model Building
 Five classifiers are trained and evaluated with a consistent evaluation wrapper:
 
 | Model | Key Hyperparameters | Notes |
 |-------|-------------------|-------|
 | **Logistic Regression** | C=1.0, penalty=L2, solver=liblinear | Linear baseline |
 | **Decision Tree** | max_depth=9, criterion=gini | Interpretable; prone to overfitting |
-| **Random Forest** | n_estimators=100, max_depth=9, criterion=gini | ✅ Selected for deployment |
+| **Random Forest** | n_estimators=100, max_depth=9, criterion=gini |  Selected for deployment |
 | **SVM (Linear)** | C=1.0, kernel=linear | Linear boundary; sensitive to scaling |
 | **SVM (RBF)** | C=10.0, kernel=rbf, gamma=0.1 | Non-linear; computationally heavier |
 
-### 5. 📊 Model Evaluation
+### 5.  Model Evaluation
 Each model is assessed using:
 - Classification report (precision, recall, F1 per class)
 - Confusion matrix
@@ -234,7 +234,7 @@ Each model is assessed using:
 
 ---
 
-## 📈 Model Results
+##  Model Results
 
 ### Why Random Forest Was Selected
 
@@ -249,15 +249,15 @@ The **Random Forest Classifier** was chosen for deployment based on consistently
 
 | Rank | Model | Strengths |
 |------|-------|-----------|
-| 🥇 1 | **Random Forest** | Best AUC, F1, and recall balance |
-| 🥈 2 | **SVM (RBF)** | Strong non-linear separation |
-| 🥉 3 | **Decision Tree** | Interpretable but slightly overfits |
+|  1 | **Random Forest** | Best AUC, F1, and recall balance |
+|  2 | **SVM (RBF)** | Strong non-linear separation |
+|  3 | **Decision Tree** | Interpretable but slightly overfits |
 | 4 | **SVM (Linear)** | Stable but limited by linear boundary |
 | 5 | **Logistic Regression** | Good baseline; lower recall on churn class |
 
 ---
 
-## 💡 Key Findings & Recommendations
+##  Key Findings & Recommendations
 
 ### Key Findings
 - **~14.5% churn rate** — a classic imbalanced classification problem where accuracy alone is misleading.
@@ -277,7 +277,7 @@ The **Random Forest Classifier** was chosen for deployment based on consistently
 
 ---
 
-## 🛠️ How to Install and Run this Project
+##  How to Install and Run this Project
 
 ### Prerequisites
 - Python 3.8+
@@ -305,7 +305,7 @@ python app.py
 
 ---
 
-## 👨🏻‍💻 How to Use this Project
+##  How to Use this Project
 
 Once the app is running:
 
@@ -331,7 +331,7 @@ http://127.0.0.1:5000/
 
 ---
 
-## 🌐 Deployment
+##  Deployment
 
 The project is deployed as a **Flask web application**. To deploy to your own hosting platform:
 
@@ -349,13 +349,13 @@ For detailed deployment instructions, refer to your chosen platform's official d
 
 <p align="center">
   <a href="https://telecom-customer-churn-prediction-1-9cn5.onrender.com/" style="color:#FF5733; font-size: 18px;">
-    🚀 View Live Deployed Web App
+     View Live Deployed Web App
   </a>
 </p>
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
@@ -363,16 +363,24 @@ The MIT License is a permissive open source license that allows you to use, modi
 
 ---
 
-## 📝 Feedback and Support
+##  Feedback and Support
 
-If you have any feedback, suggestions, or questions regarding the project, please [create an issue](https://github.com/Edwinkorir38/Telecom-Customer-Churn-Prediction/issues) in the repository or contact me directly at **ekorir99@gmail.com**.
+If you have any feedback, suggestions, or questions regarding the project, please [create an issue](https://github.com/Edwinkorir38/Telecom-Customer-Churn-Prediction/issues) in the repository or contact me directly at:
 
+##  Contact
+
+| | |
+|---|---|
+| **Name** | Edwin Korir |
+| **Email** | [ekorir99@gmail.com](mailto:ekorir99@gmail.com) |
+| **GitHub** | [github.com/Edwinkorir38](https://github.com/Edwinkorir38) |
+| **LinkedIn** | [linkedin.com/in/edwin-korir-90a794382](https://linkedin.com/in/edwin-korir-90a794382) |
 ---
 
 <p align="center">
-  <strong>If you find this repository helpful, please consider giving it a ⭐ star!</strong><br/>
-  Your support helps others discover this work and motivates continued improvement. Thank you! 🙏
+  <strong>If you find this repository helpful, please consider giving it a  star!</strong><br/>
+  Your support helps others discover this work and motivates continued improvement. Thank you! 
 </p>
 
-<p align="center">Happy analysing and predicting ❤️</p>
+<p align="center">Happy analysing and predicting </p>
 
